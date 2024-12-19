@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+datalib.egg-info/PKG-INFO
+datalib.egg-info/SOURCES.txt
+datalib.egg-info/dependency_links.txt
+datalib.egg-info/requires.txt
+datalib.egg-info/top_level.txt
+tests/__init__.py
+tests/advanced_analysis_test.py
+tests/manipulation_test.py
+tests/statistics_test.py
+tests/visualization_test.py
