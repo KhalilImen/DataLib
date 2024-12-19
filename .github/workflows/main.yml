@@ -1,72 +1,44 @@
-
 name: Python CI/CD
 
 on:
   push:
     branches:
-      - main  # Runs on pushes to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Runs on pull requests to the main branch
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.10, 3.11]  # Test against multiple Python versions
+        python-version: [3.8, 3.9, 3.10, 3.11]  # Use supported Python versions
 
     steps:
-      # Checkout the code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          if [ -f pyproject.toml ]; then pip install poetry && poetry install --no-root; fi
+          if exist requirements.txt (pip install -r requirements.txt)
+          if exist pyproject.toml (pip install poetry && poetry install --no-root)
 
-      # Linting and formatting checks
       - name: Run linters
         run: |
           pip install flake8 black isort mypy
-          flake8 .  # Check for PEP 8 compliance
-          black --check .  # Check formatting
-          isort --check-only .  # Check import sorting
-          mypy .  # Run type checking
+          flake8 .
+          black --check .
+          isort --check-only .
+          mypy .
 
-      # Run tests
       - name: Run tests
         run: |
           pip install pytest
           pytest --maxfail=10 --disable-warnings
-
-  deploy:
-    needs: test  # Runs after the test job succeeds
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          if [ -f pyproject.toml ]; then pip install poetry && poetry install --no-root; fi
-
-
