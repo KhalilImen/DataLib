@@ -13,4 +13,4 @@
 You can install the library using `pip`:
 
 ```bash
-pip install datalibHope
+pip install datalib
