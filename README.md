@@ -1,6 +1,6 @@
-# DataLibHope - A Python Data Manipulation Library
+# DataLib - A Python Data Manipulation Library
 
-**DataLibHope** is a Python library for data manipulation, preprocessing, and visualization. It includes functions for filtering, transforming, visualizing, and analyzing data.
+**DataLib** is a Python library for data manipulation, preprocessing, and visualization. It includes functions for filtering, transforming, visualizing, and analyzing data.
 
 ## Features
 
