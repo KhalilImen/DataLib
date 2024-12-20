@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="datalib",
+    name="datalib_kh",
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
