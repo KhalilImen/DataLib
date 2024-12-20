@@ -1,10 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from src.datalib.manipulation_data import DataManipulation  
-from src.datalib.statistics import Statistics
-from src.datalib.advanced_analysis import MachineLearningModels  # Import MachineLearningModels class
-from src.datalib.visualization import Plotting  # Import Plotting class
+from datalib.manipulation_data import DataManipulation  
+from datalib.statistics import Statistics
+from datalib.advanced_analysis import MachineLearningModels  # Import MachineLearningModels class
+from datalib.visualization import Plotting  # Import Plotting class
 
 def main():
     # 1. Data Manipulation

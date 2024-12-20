@@ -1,10 +1,13 @@
 [tool.poetry]
-name = "datalib_kh"
+name = "datalib"
 version = "0.1.0"
 description = "A library for data analysis and visualization"
 authors = ["KhaliImen <'imenkhalil2001@gmail.com'>"]
 license = "MIT"
 readme = "README.md"
+packages = [
+    { include = "datalib", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.11.1"
